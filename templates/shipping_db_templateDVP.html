@@ -1,0 +1,156 @@
+<!-- Edit this file to change the layout of the detail view print preview page -->
+
+
+<div class="panel-heading"><h3 class="panel-title">
+	<strong><%%DETAIL_VIEW_TITLE%%></strong>
+	<div class="hidden-print pull-right">
+		<div class="btn-group">
+			<button type="button" id="print" onclick="window.print();" title="<%%TRANSLATION(Print)%%>" class="btn btn-primary"><i class="glyphicon glyphicon-print"></i> <%%TRANSLATION(Print)%%></button>
+			<button type="submit" id="back" title="<%%TRANSLATION(Cancel Printing)%%>" class="btn btn-default"><i class="glyphicon glyphicon-remove-circle"></i> <%%TRANSLATION(Cancel Printing)%%></button>
+		</div>
+	</div>
+	<div class="clearfix"></div>
+</h3></div>
+
+<div class="panel-body">
+	<fieldset class="form-horizontal">
+		<div class="form-group" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Supplier</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><span id="supplier<%%RND1%%>"><%%COMBOTEXT(supplier)%%></span></div>
+			</div>
+		</div>
+		<div class="form-group" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Description</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(description)%%></div>
+			</div>
+		</div>
+		<div class="form-group" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Clearing agent</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><span id="shipping<%%RND1%%>"><%%COMBOTEXT(shipping)%%></span></div>
+			</div>
+		</div>
+		<div class="form-group" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Date ordered</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(date_ordered)%%></div>
+			</div>
+		</div>
+		<div class="form-group" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">BoL date</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(bol_date)%%></div>
+			</div>
+		</div>
+		<div class="form-group" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Bol date status</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(bol_date_status)%%></div>
+			</div>
+		</div>
+		<div class="form-group" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Designation</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(designation)%%></div>
+			</div>
+		</div>
+		<div class="form-group" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Status</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(status)%%></div>
+			</div>
+		</div>
+		<div class="form-group" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Unit</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(unit)%%></div>
+			</div>
+		</div>
+		<div class="form-group" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Quantity</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(quantity)%%></div>
+			</div>
+		</div>
+		<div class="form-group" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Currency</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(currency)%%></div>
+			</div>
+		</div>
+		<div class="form-group" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Unit price</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(unit_price)%%></div>
+			</div>
+		</div>
+		<div class="form-group" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Total price</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(total_price)%%></div>
+			</div>
+		</div>
+		<div class="form-group" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Payment terms</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(payment_terms)%%></div>
+			</div>
+		</div>
+		<div class="form-group" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Payment date</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(due)%%></div>
+			</div>
+		</div>
+		<div class="form-group" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Invoice number</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(profoma_invoice)%%></div>
+			</div>
+		</div>
+		<div class="form-group" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">proforma</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><a id="copy_invoice-link" href="link.php?t=shipping_db&f=copy_invoice&i=<%%VALUE(id)%%>" target="_blank"><i class="glyphicon glyphicon-picture" title="<%%VALUE(copy_invoice)%%>" style="font-size: x-large;"></i></a><script>jQuery(function(){ var e_copy_invoice = '<%%VALUE(copy_invoice)%%>'; if(e_copy_invoice == '' || e_copy_invoice == '&nbsp;' || e_copy_invoice == 'blank.gif') jQuery('#copy_invoice-link').hide(); });</script></div>
+			</div>
+		</div>
+		<div class="form-group" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Commercial invoice</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><a id="commercial_invoice-link" href="link.php?t=shipping_db&f=commercial_invoice&i=<%%VALUE(id)%%>" target="_blank"><i class="glyphicon glyphicon-picture" title="<%%VALUE(commercial_invoice)%%>" style="font-size: x-large;"></i></a><script>jQuery(function(){ var e_commercial_invoice = '<%%VALUE(commercial_invoice)%%>'; if(e_commercial_invoice == '' || e_commercial_invoice == '&nbsp;' || e_commercial_invoice == 'blank.gif') jQuery('#commercial_invoice-link').hide(); });</script></div>
+			</div>
+		</div>
+		<div class="form-group" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">BoL</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><a id="bill_of_ladding-link" href="link.php?t=shipping_db&f=bill_of_ladding&i=<%%VALUE(id)%%>" target="_blank"><i class="glyphicon glyphicon-picture" title="<%%VALUE(bill_of_ladding)%%>" style="font-size: x-large;"></i></a><script>jQuery(function(){ var e_bill_of_ladding = '<%%VALUE(bill_of_ladding)%%>'; if(e_bill_of_ladding == '' || e_bill_of_ladding == '&nbsp;' || e_bill_of_ladding == 'blank.gif') jQuery('#bill_of_ladding-link').hide(); });</script></div>
+			</div>
+		</div>
+		<div class="form-group" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Clearing Doc</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><a id="clearing_document-link" href="link.php?t=shipping_db&f=clearing_document&i=<%%VALUE(id)%%>" target="_blank"><i class="glyphicon glyphicon-picture" title="<%%VALUE(clearing_document)%%>" style="font-size: x-large;"></i></a><script>jQuery(function(){ var e_clearing_document = '<%%VALUE(clearing_document)%%>'; if(e_clearing_document == '' || e_clearing_document == '&nbsp;' || e_clearing_document == 'blank.gif') jQuery('#clearing_document-link').hide(); });</script></div>
+			</div>
+		</div>
+		<div class="form-group" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Other</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><a id="other_documents-link" href="link.php?t=shipping_db&f=other_documents&i=<%%VALUE(id)%%>" target="_blank"><i class="glyphicon glyphicon-picture" title="<%%VALUE(other_documents)%%>" style="font-size: x-large;"></i></a><script>jQuery(function(){ var e_other_documents = '<%%VALUE(other_documents)%%>'; if(e_other_documents == '' || e_other_documents == '&nbsp;' || e_other_documents == 'blank.gif') jQuery('#other_documents-link').hide(); });</script></div>
+			</div>
+		</div>
+		<div class="form-group" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Logged by</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(logged_by)%%></div>
+			</div>
+		</div>
+		<div class="form-group" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">BoL status</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(bol_status)%%></div>
+			</div>
+		</div>
+	</fieldset>
+</div>

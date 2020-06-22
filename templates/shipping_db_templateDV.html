@@ -1,0 +1,389 @@
+<!-- Edit this file to change the layout of the detail view form -->
+
+<script src="resources/datepicker/js/datepicker.packed.js"></script>
+<link href="resources/datepicker/css/datepicker.css" rel="stylesheet">
+
+<a name="detail-view"></a>
+<div class="panel-heading"><h3 class="panel-title"><strong><%%DETAIL_VIEW_TITLE%%></strong></h3></div>
+
+<div class="panel-body" id="shipping_db_dv_container">
+	<!-- child links -->
+	<div class="row">
+		<div class="col-xs-12">
+			<div class="clearfix"></div>
+		</div>
+	</div>
+	<hr>
+
+	<div class="row">
+		<!-- form inputs -->
+		<div class="col-md-8 col-lg-10" id="shipping_db_dv_form">
+			<fieldset class="form-horizontal">
+
+				<div class="form-group">
+					<label for="supplier" class="control-label col-lg-3" data-parent_link="view_parent_modal">Supplier</label>
+					<div class="col-lg-9">
+						<div class="row form-control-static"><div class="col-xs-11"><%%COMBO(supplier)%%><%%PLINK(supplier)%%><%%ADDNEW(contacts)%%></div></div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="description" class="control-label col-lg-3">Description</label>
+					<div class="col-lg-9">
+						<input maxlength="40" type="text" class="form-control" name="description" id="description" value="<%%VALUE(description)%%>">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="shipping" class="control-label col-lg-3" data-parent_link="view_parent_modal">Clearing agent</label>
+					<div class="col-lg-9">
+						<div class="row form-control-static"><div class="col-xs-11"><%%COMBO(shipping)%%><%%PLINK(shipping)%%><%%ADDNEW(contacts)%%></div></div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="date_ordered" class="control-label col-lg-3">Date ordered</label>
+					<div class="col-lg-9">
+						<%%COMBO(date_ordered)%%>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="bol_date" class="control-label col-lg-3">BoL date</label>
+					<div class="col-lg-9">
+						<%%COMBO(bol_date)%%>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="bol_date_status" class="control-label col-lg-3">Bol date status</label>
+					<div class="col-lg-9">
+						<%%COMBO(bol_date_status)%%>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="designation" class="control-label col-lg-3">Designation</label>
+					<div class="col-lg-9">
+						<%%COMBO(designation)%%>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="status" class="control-label col-lg-3">Status</label>
+					<div class="col-lg-9">
+						<%%COMBO(status)%%>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="unit" class="control-label col-lg-3">Unit</label>
+					<div class="col-lg-9">
+						<%%COMBO(unit)%%>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="quantity" class="control-label col-lg-3">Quantity</label>
+					<div class="col-lg-9">
+						<input maxlength="13" type="text" class="form-control" name="quantity" id="quantity" value="<%%VALUE(quantity)%%>">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="currency" class="control-label col-lg-3">Currency</label>
+					<div class="col-lg-9">
+						<%%COMBO(currency)%%>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="unit_price" class="control-label col-lg-3">Unit price</label>
+					<div class="col-lg-9">
+						<input maxlength="13" type="text" class="form-control" name="unit_price" id="unit_price" value="<%%VALUE(unit_price)%%>">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="total_price" class="control-label col-lg-3">Total price</label>
+					<div class="col-lg-9">
+						<input maxlength="13" type="text" class="form-control" name="total_price" id="total_price" value="<%%VALUE(total_price)%%>">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="payment_terms" class="control-label col-lg-3">Payment terms</label>
+					<div class="col-lg-9">
+						<%%COMBO(payment_terms)%%>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="due" class="control-label col-lg-3">Payment date</label>
+					<div class="col-lg-9">
+						<input maxlength="40" type="text" class="form-control" name="due" id="due" value="<%%VALUE(due)%%>">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="profoma_invoice" class="control-label col-lg-3">Invoice number</label>
+					<div class="col-lg-9">
+						<input maxlength="40" type="text" class="form-control" name="profoma_invoice" id="profoma_invoice" value="<%%VALUE(profoma_invoice)%%>">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="control-label col-lg-3">proforma <i class="glyphicon glyphicon-info-sign text-info" data-toggle="collapse" data-target="#copy_invoice-description"></i></label>
+					<div class="col-lg-9">
+						<span class="help-block collapse" id="copy_invoice-description"><div class="alert alert-info">Maximum file size allowed: 5120 KB.<br>Allowed file types: txt, doc, docx, docm, odt, pdf, rtf, jpg, jpeg, png</div></span>
+
+						
+						<div class="row">
+							<div class="col-md-1">
+								<a id="copy_invoice-link" href="link.php?t=shipping_db&f=copy_invoice&i=<%%VALUE(id)%%>" target="_blank"><i class="glyphicon glyphicon-picture" title="<%%VALUE(copy_invoice)%%>" style="font-size: x-large; top: .35em;"></i></a>
+							</div>
+							<script>jQuery(function(){ var e_copy_invoice = '<%%VALUE(copy_invoice)%%>'; if(e_copy_invoice == '' || e_copy_invoice == '&nbsp;' || e_copy_invoice == 'blank.gif') jQuery('#copy_invoice-link').hide(); });</script>						<div class="pull-right" style="overflow-x: hidden;">
+							<div class="hidden-md hidden-lg vspacer-lg"></div>
+							<%%UPLOADFILE(copy_invoice)%%>
+							<%%REMOVEFILE(copy_invoice)%%>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="control-label col-lg-3">Commercial invoice <i class="glyphicon glyphicon-info-sign text-info" data-toggle="collapse" data-target="#commercial_invoice-description"></i></label>
+					<div class="col-lg-9">
+						<span class="help-block collapse" id="commercial_invoice-description"><div class="alert alert-info">Maximum file size allowed: 5120 KB.<br>Allowed file types: txt, doc, docx, docm, odt, pdf, rtf, jpg, jpeg, png</div></span>
+
+						
+						<div class="row">
+							<div class="col-md-1">
+								<a id="commercial_invoice-link" href="link.php?t=shipping_db&f=commercial_invoice&i=<%%VALUE(id)%%>" target="_blank"><i class="glyphicon glyphicon-picture" title="<%%VALUE(commercial_invoice)%%>" style="font-size: x-large; top: .35em;"></i></a>
+							</div>
+							<script>jQuery(function(){ var e_commercial_invoice = '<%%VALUE(commercial_invoice)%%>'; if(e_commercial_invoice == '' || e_commercial_invoice == '&nbsp;' || e_commercial_invoice == 'blank.gif') jQuery('#commercial_invoice-link').hide(); });</script>						<div class="pull-right" style="overflow-x: hidden;">
+							<div class="hidden-md hidden-lg vspacer-lg"></div>
+							<%%UPLOADFILE(commercial_invoice)%%>
+							<%%REMOVEFILE(commercial_invoice)%%>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="control-label col-lg-3">BoL <i class="glyphicon glyphicon-info-sign text-info" data-toggle="collapse" data-target="#bill_of_ladding-description"></i></label>
+					<div class="col-lg-9">
+						<span class="help-block collapse" id="bill_of_ladding-description"><div class="alert alert-info">Maximum file size allowed: 5120 KB.<br>Allowed file types: txt, doc, docx, docm, odt, pdf, rtf, jpg, jpeg, png</div></span>
+
+						
+						<div class="row">
+							<div class="col-md-1">
+								<a id="bill_of_ladding-link" href="link.php?t=shipping_db&f=bill_of_ladding&i=<%%VALUE(id)%%>" target="_blank"><i class="glyphicon glyphicon-picture" title="<%%VALUE(bill_of_ladding)%%>" style="font-size: x-large; top: .35em;"></i></a>
+							</div>
+							<script>jQuery(function(){ var e_bill_of_ladding = '<%%VALUE(bill_of_ladding)%%>'; if(e_bill_of_ladding == '' || e_bill_of_ladding == '&nbsp;' || e_bill_of_ladding == 'blank.gif') jQuery('#bill_of_ladding-link').hide(); });</script>						<div class="pull-right" style="overflow-x: hidden;">
+							<div class="hidden-md hidden-lg vspacer-lg"></div>
+							<%%UPLOADFILE(bill_of_ladding)%%>
+							<%%REMOVEFILE(bill_of_ladding)%%>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="control-label col-lg-3">Clearing Doc <i class="glyphicon glyphicon-info-sign text-info" data-toggle="collapse" data-target="#clearing_document-description"></i></label>
+					<div class="col-lg-9">
+						<span class="help-block collapse" id="clearing_document-description"><div class="alert alert-info">Maximum file size allowed: 5120 KB.<br>Allowed file types: txt, doc, docx, docm, odt, pdf, rtf, jpg, jpeg, png</div></span>
+
+						
+						<div class="row">
+							<div class="col-md-1">
+								<a id="clearing_document-link" href="link.php?t=shipping_db&f=clearing_document&i=<%%VALUE(id)%%>" target="_blank"><i class="glyphicon glyphicon-picture" title="<%%VALUE(clearing_document)%%>" style="font-size: x-large; top: .35em;"></i></a>
+							</div>
+							<script>jQuery(function(){ var e_clearing_document = '<%%VALUE(clearing_document)%%>'; if(e_clearing_document == '' || e_clearing_document == '&nbsp;' || e_clearing_document == 'blank.gif') jQuery('#clearing_document-link').hide(); });</script>						<div class="pull-right" style="overflow-x: hidden;">
+							<div class="hidden-md hidden-lg vspacer-lg"></div>
+							<%%UPLOADFILE(clearing_document)%%>
+							<%%REMOVEFILE(clearing_document)%%>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="control-label col-lg-3">Other <i class="glyphicon glyphicon-info-sign text-info" data-toggle="collapse" data-target="#other_documents-description"></i></label>
+					<div class="col-lg-9">
+						<span class="help-block collapse" id="other_documents-description"><div class="alert alert-info">Maximum file size allowed: 5120 KB.<br>Allowed file types: txt, doc, docx, docm, odt, pdf, rtf, jpg, jpeg, png</div></span>
+
+						
+						<div class="row">
+							<div class="col-md-1">
+								<a id="other_documents-link" href="link.php?t=shipping_db&f=other_documents&i=<%%VALUE(id)%%>" target="_blank"><i class="glyphicon glyphicon-picture" title="<%%VALUE(other_documents)%%>" style="font-size: x-large; top: .35em;"></i></a>
+							</div>
+							<script>jQuery(function(){ var e_other_documents = '<%%VALUE(other_documents)%%>'; if(e_other_documents == '' || e_other_documents == '&nbsp;' || e_other_documents == 'blank.gif') jQuery('#other_documents-link').hide(); });</script>						<div class="pull-right" style="overflow-x: hidden;">
+							<div class="hidden-md hidden-lg vspacer-lg"></div>
+							<%%UPLOADFILE(other_documents)%%>
+							<%%REMOVEFILE(other_documents)%%>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="logged_by" class="control-label col-lg-3">Logged by</label>
+					<div class="col-lg-9">
+						<div class="form-control-static" id="logged_by"><%%VALUE(logged_by)%%></div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="bol_status" class="control-label col-lg-3">BoL status</label>
+					<div class="col-lg-9">
+						<%%COMBO(bol_status)%%>
+					</div>
+				</div>
+
+			</fieldset>
+		</div>
+
+		<!-- DV action buttons -->
+		<div class="col-md-4 col-lg-2" id="shipping_db_dv_action_buttons">
+			<div class="btn-toolbar">
+				<div class="btn-group-vertical btn-group-lg" style="width: 100%;">
+					<%%UPDATE_BUTTON%%>
+				</div><p></p>
+				<div class="btn-group-vertical btn-group-lg" style="width: 100%;">
+					<%%DESELECT_BUTTON%%>
+					<%%DVPRINT_BUTTON%%>
+					<%%DELETE_BUTTON%%>
+				</div><p></p>
+				<div class="btn-group-vertical btn-group-lg" style="width: 100%;">
+					<%%INSERT_BUTTON%%>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+</div><!-- /div class="panel-body" -->
+	<script>
+		$j(function() {
+			var add_new_mode = (!$j('input[name=SelectedID]').val());
+			var embedded_mode = ($j('input[name=Embedded]').val() == 1);
+
+			/* auto-close embedded page? */
+			var autoclose_mode = ($j('input[name=AutoClose]').val() == 1);
+			var record_added_ok = (location.search.split('record-added-ok=').length == 2);
+			var record_updated_ok = (location.search.split('record-updated-ok=').length == 2);
+			if((record_added_ok || record_updated_ok) && embedded_mode && autoclose_mode){
+				setTimeout(function(){
+					window.parent.jQuery('.modal').modal('hide');
+				}, 2000);
+			}
+
+			/* enable DV action buttons to float on scrolling down the form */
+			enable_dvab_floating();
+
+			$j('select, input[type=text], textarea').not(':disabled').eq(0).focus();
+			$j('form').eq(0).change(function(){
+				if($j(this).data('already_changed')) return;
+				if($j('#deselect').length) $j('#deselect').removeClass('btn-default').addClass('btn-warning').get(0).lastChild.data = " <%%TRANSLATION(Cancel)%%>";
+				$j(this).data('already_changed', true);
+			});
+
+			$j('a[href="<%%TRANSLATION(ImageFolder)%%>"]').click(function(){ return false; });
+
+
+			if(!embedded_mode){
+				/* add a horizontal spacer to [add new parent] buttons that don't have a spacered element before them */
+				$j('.add_new_parent').prev(':not(.hspacer-md)').next().addClass('hspacer-md');
+
+				$j('.add_new_parent').click(function(){
+					var pt = $j(this).attr('id').replace(/_add_new$/, '');
+					modal_window({
+						url: pt + '_view.php?addNew_x=1&Embedded=1',
+						close: function(){
+							var field_id = $j('#' + pt + '_add_new').prevAll('input:hidden').eq(0).attr('id');
+							$j('#' + field_id + '-container').select2('focus').select2('focus');
+						},
+						size: 'full',
+						title: $j(this).attr('title')
+					});
+				});
+			}
+
+			/* find and hide parent links if field label has data 'parent_link' set to 'view_parent_hidden' */
+			$j('label[data-parent_link=view_parent_hidden]').each(function(){
+				$j(this).parents('.form-group').find('.view_parent').hide();
+			});
+
+			$j('form').on('click', '.view_parent', function(){
+				var pt = $j(this).attr('id').replace(/_view_parent$/, '');
+				if($j(this).prevAll('input:hidden').length){
+					var parent_id = $j(this).prevAll('input:hidden').eq(0).val();
+				}else{
+					var parent_id = $j(this).prevAll().children('input:hidden').eq(0).val();
+				}
+
+				/* handle radio lookups */
+				if($j(this).prevAll('[type=radio]').length){
+					parent_id = $j(this).prevAll('[type=radio]').eq(0).val();
+				}
+
+				if(parent_id != '{empty_value}'){
+					var parent_link = $j(this).parents('.form-group').children('label').data('parent_link');
+					switch(parent_link){
+						case 'view_parent_hidden':
+							break;
+						case 'view_parent_modal':
+							modal_window({
+								url: pt + '_view.php?Embedded=1&SelectedID=' + encodeURIComponent(parent_id),
+								close: function(){
+									var field_id = $j('#' + pt + '_view_parent').prevAll('input:hidden').eq(0).attr('id');
+									$j('#' + field_id + '-container').select2('focus').select2('focus');
+								},
+								size: 'full',
+								title: $j(this).attr('title')
+							});
+							break;
+						case 'view_parent_same_window':
+							window.location = pt + '_view.php?Embedded=' + (embedded_mode ? '1' : '') + '&SelectedID=' + encodeURIComponent(parent_id);
+							break;
+						case 'view_parent_new_window':
+							window.open(pt + '_view.php?SelectedID=' + encodeURIComponent(parent_id));
+							break;
+					}
+
+				}
+			});
+
+
+			/* load admin tools for admin user */
+			if(!add_new_mode){
+				$j('body').append('<div id="admin-tools-appendix"></div>');
+				$j('#admin-tools-appendix').load(
+					'ajax_admin_tools.php?table=shipping_db&id=<%%URLVALUE(id)%%>',
+					function(resp){
+						if(!resp.length) return;
+						$j.ajax('ajax_admin_tools.php?action=get_admin_tools_js&table=shipping_db&id=<%%URLVALUE(id)%%>');
+					}
+				);
+			}
+
+			/* warn user if 'add new' clicked while unsaved changes exist */
+			$j('#addNew').click(function(){
+				if($j('#deselect.btn-warning').length){
+					return confirm('<%%TRANSLATION(discard changes confirm)%%>');
+				}
+			});
+
+		});
+	</script>

@@ -1,0 +1,14 @@
+<!-- Edit this file to change the layout of each record in the table view -->
+<!-- To disable clicking of a field, remove the <%%SELECT%%> and <%%ENDSELECT%%> formatters around it-->
+
+<!-- If you wish to hide the table view header that contains the column titles, -->
+<!-- add the following to the contacts_init() hook (in hooks/contacts.php file) -->
+<!--     $options->ShowTableHeader = 0;     -->
+
+		<td id="contacts-id-<%%VALUE(id)%%>" class="contacts-id text-right"><%%VALUE(id)%%></td>
+		<td id="contacts-name-<%%VALUE(id)%%>" class="contacts-name"><%%VALUE(name)%%></td>
+		<td id="contacts-entity-<%%VALUE(id)%%>" class="contacts-entity"><%%SELECT%%><%%VALUE(entity)%%><%%ENDSELECT%%></td>
+		<td id="contacts-email-<%%VALUE(id)%%>" class="contacts-email"><%%VALUE(email)%%></td>
+		<td id="contacts-phone-<%%VALUE(id)%%>" class="contacts-phone"><%%VALUE(phone)%%></td>
+		<td id="contacts-mobile-<%%VALUE(id)%%>" class="contacts-mobile"><%%VALUE(mobile)%%></td>
+		<td id="contacts-contact_person-<%%VALUE(id)%%>" class="contacts-contact_person"><%%VALUE(contact_person)%%></td>

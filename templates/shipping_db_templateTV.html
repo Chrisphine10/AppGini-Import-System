@@ -1,0 +1,38 @@
+<!-- Edit this file to change the layout of each record in the table view -->
+<!-- To disable clicking of a field, remove the <%%SELECT%%> and <%%ENDSELECT%%> formatters around it-->
+
+<!-- If you wish to hide the table view header that contains the column titles, -->
+<!-- add the following to the shipping_db_init() hook (in hooks/shipping_db.php file) -->
+<!--     $options->ShowTableHeader = 0;     -->
+
+		<td id="shipping_db-id-<%%VALUE(id)%%>" class="shipping_db-id text-right"><%%VALUE(id)%%></td>
+		<td id="shipping_db-supplier-<%%VALUE(id)%%>" class="shipping_db-supplier"><%%SELECT%%><%%VALUE(supplier)%%><%%ENDSELECT%%></td>
+		<td id="shipping_db-description-<%%VALUE(id)%%>" class="shipping_db-description"><%%SELECT%%><%%VALUE(description)%%><%%ENDSELECT%%></td>
+		<td id="shipping_db-shipping-<%%VALUE(id)%%>" class="shipping_db-shipping"><%%SELECT%%><%%VALUE(shipping)%%><%%ENDSELECT%%></td>
+		<td id="shipping_db-date_ordered-<%%VALUE(id)%%>" class="shipping_db-date_ordered"><%%VALUE(date_ordered)%%></td>
+		<td id="shipping_db-bol_date-<%%VALUE(id)%%>" class="shipping_db-bol_date"><%%SELECT%%><%%VALUE(bol_date)%%><%%ENDSELECT%%></td>
+		<td id="shipping_db-bol_date_status-<%%VALUE(id)%%>" class="shipping_db-bol_date_status"><%%SELECT%%><%%VALUE(bol_date_status)%%><%%ENDSELECT%%></td>
+		<td id="shipping_db-designation-<%%VALUE(id)%%>" class="shipping_db-designation"><%%SELECT%%><%%VALUE(designation)%%><%%ENDSELECT%%></td>
+		<td id="shipping_db-status-<%%VALUE(id)%%>" class="shipping_db-status"><%%SELECT%%><%%VALUE(status)%%><%%ENDSELECT%%></td>
+		<td id="shipping_db-unit-<%%VALUE(id)%%>" class="shipping_db-unit"><%%SELECT%%><%%VALUE(unit)%%><%%ENDSELECT%%></td>
+		<td id="shipping_db-quantity-<%%VALUE(id)%%>" class="shipping_db-quantity text-right"><%%VALUE(quantity)%%></td>
+		<td id="shipping_db-currency-<%%VALUE(id)%%>" class="shipping_db-currency"><%%SELECT%%><%%VALUE(currency)%%><%%ENDSELECT%%></td>
+		<td id="shipping_db-unit_price-<%%VALUE(id)%%>" class="shipping_db-unit_price text-right"><%%SELECT%%><%%VALUE(unit_price)%%><%%ENDSELECT%%></td>
+		<td id="shipping_db-total_price-<%%VALUE(id)%%>" class="shipping_db-total_price text-right"><%%SELECT%%><%%VALUE(total_price)%%><%%ENDSELECT%%></td>
+		<td id="shipping_db-payment_terms-<%%VALUE(id)%%>" class="shipping_db-payment_terms"><%%SELECT%%><%%VALUE(payment_terms)%%><%%ENDSELECT%%></td>
+		<td id="shipping_db-due-<%%VALUE(id)%%>" class="shipping_db-due"><%%SELECT%%><%%VALUE(due)%%><%%ENDSELECT%%></td>
+		<td id="shipping_db-profoma_invoice-<%%VALUE(id)%%>" class="shipping_db-profoma_invoice"><%%VALUE(profoma_invoice)%%></td>
+		<td id="shipping_db-copy_invoice-<%%VALUE(id)%%>" class="shipping_db-copy_invoice text-center"><a href="link.php?t=shipping_db&f=copy_invoice&i=<%%VALUE(id)%%>" target="_blank" title="<%%VALUE(copy_invoice)%%>" class="btn btn-default"><i class="glyphicon glyphicon-picture text-info"></i></a></td>
+		<td id="shipping_db-commercial_invoice-<%%VALUE(id)%%>" class="shipping_db-commercial_invoice"><a href="link.php?t=shipping_db&f=commercial_invoice&i=<%%VALUE(id)%%>" target="_blank" title="<%%VALUE(commercial_invoice)%%>" class="btn btn-default"><i class="glyphicon glyphicon-picture text-info"></i></a></td>
+		<td id="shipping_db-bill_of_ladding-<%%VALUE(id)%%>" class="shipping_db-bill_of_ladding"><a href="link.php?t=shipping_db&f=bill_of_ladding&i=<%%VALUE(id)%%>" target="_blank" title="<%%VALUE(bill_of_ladding)%%>" class="btn btn-default"><i class="glyphicon glyphicon-picture text-info"></i></a></td>
+		<td id="shipping_db-clearing_document-<%%VALUE(id)%%>" class="shipping_db-clearing_document"><a href="link.php?t=shipping_db&f=clearing_document&i=<%%VALUE(id)%%>" target="_blank" title="<%%VALUE(clearing_document)%%>" class="btn btn-default"><i class="glyphicon glyphicon-picture text-info"></i></a></td>
+		<td id="shipping_db-other_documents-<%%VALUE(id)%%>" class="shipping_db-other_documents"><a href="link.php?t=shipping_db&f=other_documents&i=<%%VALUE(id)%%>" target="_blank" title="<%%VALUE(other_documents)%%>" class="btn btn-default"><i class="glyphicon glyphicon-picture text-info"></i></a></td>
+		<td id="shipping_db-logged_by-<%%VALUE(id)%%>" class="shipping_db-logged_by"><%%VALUE(logged_by)%%></td>
+		<td id="shipping_db-bol_status-<%%VALUE(id)%%>" class="shipping_db-bol_status"><%%SELECT%%><%%VALUE(bol_status)%%><%%ENDSELECT%%></td>
+		<script>$j(function(){
+			var e_copy_invoice = '<%%VALUE(copy_invoice)%%>'; if(e_copy_invoice == '' || e_copy_invoice == '&nbsp;') $j(/*<*/ '#shipping_db-copy_invoice-<%%VALUE(id)%%>' /*>*/).html('');
+			var e_commercial_invoice = '<%%VALUE(commercial_invoice)%%>'; if(e_commercial_invoice == '' || e_commercial_invoice == '&nbsp;') $j(/*<*/ '#shipping_db-commercial_invoice-<%%VALUE(id)%%>' /*>*/).html('');
+			var e_bill_of_ladding = '<%%VALUE(bill_of_ladding)%%>'; if(e_bill_of_ladding == '' || e_bill_of_ladding == '&nbsp;') $j(/*<*/ '#shipping_db-bill_of_ladding-<%%VALUE(id)%%>' /*>*/).html('');
+			var e_clearing_document = '<%%VALUE(clearing_document)%%>'; if(e_clearing_document == '' || e_clearing_document == '&nbsp;') $j(/*<*/ '#shipping_db-clearing_document-<%%VALUE(id)%%>' /*>*/).html('');
+			var e_other_documents = '<%%VALUE(other_documents)%%>'; if(e_other_documents == '' || e_other_documents == '&nbsp;') $j(/*<*/ '#shipping_db-other_documents-<%%VALUE(id)%%>' /*>*/).html('');
+		});</script>
