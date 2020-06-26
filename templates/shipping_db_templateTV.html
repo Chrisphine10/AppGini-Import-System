@@ -29,10 +29,12 @@
 		<td id="shipping_db-other_documents-<%%VALUE(id)%%>" class="shipping_db-other_documents"><a href="link.php?t=shipping_db&f=other_documents&i=<%%VALUE(id)%%>" target="_blank" title="<%%VALUE(other_documents)%%>" class="btn btn-default"><i class="glyphicon glyphicon-picture text-info"></i></a></td>
 		<td id="shipping_db-logged_by-<%%VALUE(id)%%>" class="shipping_db-logged_by"><%%VALUE(logged_by)%%></td>
 		<td id="shipping_db-bol_status-<%%VALUE(id)%%>" class="shipping_db-bol_status"><%%SELECT%%><%%VALUE(bol_status)%%><%%ENDSELECT%%></td>
+		
 		<script>$j(function(){
 			var e_copy_invoice = '<%%VALUE(copy_invoice)%%>'; if(e_copy_invoice == '' || e_copy_invoice == '&nbsp;') $j(/*<*/ '#shipping_db-copy_invoice-<%%VALUE(id)%%>' /*>*/).html('');
 			var e_commercial_invoice = '<%%VALUE(commercial_invoice)%%>'; if(e_commercial_invoice == '' || e_commercial_invoice == '&nbsp;') $j(/*<*/ '#shipping_db-commercial_invoice-<%%VALUE(id)%%>' /*>*/).html('');
 			var e_bill_of_ladding = '<%%VALUE(bill_of_ladding)%%>'; if(e_bill_of_ladding == '' || e_bill_of_ladding == '&nbsp;') $j(/*<*/ '#shipping_db-bill_of_ladding-<%%VALUE(id)%%>' /*>*/).html('');
 			var e_clearing_document = '<%%VALUE(clearing_document)%%>'; if(e_clearing_document == '' || e_clearing_document == '&nbsp;') $j(/*<*/ '#shipping_db-clearing_document-<%%VALUE(id)%%>' /*>*/).html('');
 			var e_other_documents = '<%%VALUE(other_documents)%%>'; if(e_other_documents == '' || e_other_documents == '&nbsp;') $j(/*<*/ '#shipping_db-other_documents-<%%VALUE(id)%%>' /*>*/).html('');
-		});</script>
+		});
+		</script>

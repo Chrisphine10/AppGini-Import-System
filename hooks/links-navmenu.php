@@ -14,7 +14,7 @@
 		'url' => 'search.php', 
 		'title' => 'Filter Table', 
 		'groups' => array('Managers'), // groups allowed to see this link, use '*' if you want to show the link to all groups
-		'icon' => 'photo.gif',
+		'icon' => 'table.gif',
 		'table_group' => 0, // optional index of table group, default is 0
 	);
 ?>

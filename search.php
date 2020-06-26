@@ -1,15 +1,57 @@
-<!-- CSS only -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-<!-- JS, Popper.js, and jQuery -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+<?php
+$currDir=dirname(__FILE__);
+include("$currDir/defaultLang.php");
+include("$currDir/lib.php");
+include("$currDir/header.php");
+
+?>
 <style>
+.column {
+  float: left;
+  width: 33.33%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.column {
+  float: left;
+}
+
+.left, .right {
+  width: 30%;
+}
+
+.middle {
+  width: 50%;
+}
 .form-control{
 	width: 300px!important;
 	align-items: centre;
 }
 </style>
+
+<script>
+// Listen for click on toggle checkbox
+$('#select-all').click(function(event) {   
+    if(this.checked) {
+        // Iterate each checkbox
+        $(':checkbox').each(function() {
+            this.checked = true;                        
+        });
+    } else {
+        $(':checkbox').each(function() {
+            this.checked = false;                       
+        });
+    }
+});
+function goBack() {
+  window.history.back();
+}
+</script>
 <?php
 
 	$servername = "localhost";
@@ -26,22 +68,17 @@
 		$stmt->execute();
 
 		?>
-		<div class="container mt-5 mb-5">
-		<div class="column"> 
-		<div class="card">
-		<div class="card-header">
-		<h3>Select the fields to display</h3>
-		</div>
+		<h5 style="margin: 0px;">Select fields for your report</h5>
+		
 		<div class="card-body">
 
 		<form action="results.php" method="post">
 		<div class="form-check form-check-block">
 		<div class="row">
-					
 			
 		<?php
 			while ($row = $stmt->fetch()) {
-				echo '<div class="col-3">';
+				echo '<div class="column">';
 				if($row[0] === 'supplier'){
 				   echo '<input  class="form-check-input" type="checkbox" id='. $row[0].' name="columns[]" value='. $row[0].'>';
 				   echo '<label class="form-check-label" for='. $row[0].'>Supplier</label><br>';
@@ -150,7 +187,7 @@
 
 		?>
 		<label for="limit"></label>Limit</br>
-		<input class="form-control" type="number" name="limit" id="limit"><br>
+		<input class="form-control" type="number" min="1" name="limit" id="limit"><br>
 		<label for="limit"></label>Order By</br>
 		<?php
 		$stmt = null;
@@ -243,8 +280,6 @@
 		<button class="btn btn-outline-primary" type="submit">Query</button>
 		</form>
 		</div>
-		</div>
-		</div>
 
 		<?php
 	  } catch(PDOException $e) {
@@ -252,6 +287,4 @@
 	  }
   $conn = null;
 ?>
-
-</div>
 
