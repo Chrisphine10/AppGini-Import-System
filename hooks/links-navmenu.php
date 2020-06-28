@@ -13,7 +13,14 @@
 	$navLinks[] = array(
 		'url' => 'search.php', 
 		'title' => 'Filter Table', 
-		'groups' => array('Managers'), // groups allowed to see this link, use '*' if you want to show the link to all groups
+		'groups' => array('*'), // groups allowed to see this link, use '*' if you want to show the link to all groups
+		'icon' => 'table.gif',
+		'table_group' => 0, // optional index of table group, default is 0
+	);
+	$navLinks[] = array(
+		'url' => 'datepicker.php', 
+		'title' => 'Summary Report', 
+		'groups' => array('*'), // groups allowed to see this link, use '*' if you want to show the link to all groups
 		'icon' => 'table.gif',
 		'table_group' => 0, // optional index of table group, default is 0
 	);

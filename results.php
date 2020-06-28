@@ -3,7 +3,7 @@ $currDir=dirname(__FILE__);
 include("$currDir/defaultLang.php");
 include("$currDir/lib.php");
 include("$currDir/header.php");
-
+include("config.php");
 ?>
 <script>
 
@@ -44,7 +44,7 @@ $dbname = "farmicac_imports_clone";
 $password = "";
 // Create connection
 try {
-$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username);
+$conn = new PDO("mysql:host=$dbServer;dbname=$dbDatabase", $dbUsername, $dbPassword);
 		// set the PDO error mode to exception
 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 ?>
@@ -158,25 +158,25 @@ foreach ($columns as $column){
 	  }
   }
 	elseif($startdate != null && $enddate != null && $limit == null && $order == null){
-		$stmt = $conn->prepare("SELECT *,contacts.name FROM shipping_db INNER JOIN contacts ON(shipping_db.supplier=contacts.id) WHERE date_ordered BETWEEN '$startdate' AND '$enddate'");
+		$stmt = $conn->prepare("SELECT *,contacts.name FROM shipping_db INNER JOIN contacts ON(shipping_db.supplier=contacts.id) WHERE due BETWEEN '$startdate' AND '$enddate'");
 	}
 	elseif($limit != null && $order == null && $startdate != null && $enddate != null){
-		$stmt = $conn->prepare("SELECT *,contacts.name FROM shipping_db INNER JOIN contacts ON(shipping_db.supplier=contacts.id) WHERE date_ordered BETWEEN '$startdate' AND '$enddate' LIMIT $limit");
+		$stmt = $conn->prepare("SELECT *,contacts.name FROM shipping_db INNER JOIN contacts ON(shipping_db.supplier=contacts.id) WHERE due BETWEEN '$startdate' AND '$enddate' LIMIT $limit");
 	}
 	elseif($limit == null && $order != null && $startdate != null && $enddate != null){
 		if($order == "supplier"){
-			$stmt = $conn->prepare("SELECT *,contacts.name FROM shipping_db INNER JOIN contacts ON(shipping_db.supplier=contacts.id) WHERE date_ordered BETWEEN '$startdate' AND '$enddate' ORDER BY contacts.name ASC");
+			$stmt = $conn->prepare("SELECT *,contacts.name FROM shipping_db INNER JOIN contacts ON(shipping_db.supplier=contacts.id) WHERE due BETWEEN '$startdate' AND '$enddate' ORDER BY contacts.name ASC");
 		}
 		else{
-		  $stmt = $conn->prepare("SELECT *,contacts.name FROM shipping_db INNER JOIN contacts ON(shipping_db.supplier=contacts.id) WHERE date_ordered BETWEEN '$startdate' AND '$enddate' ORDER BY $order ASC");
+		  $stmt = $conn->prepare("SELECT *,contacts.name FROM shipping_db INNER JOIN contacts ON(shipping_db.supplier=contacts.id) WHERE due BETWEEN '$startdate' AND '$enddate' ORDER BY $order ASC");
 	  }
   }
 	elseif($limit != null && $order != null && $startdate != null && $enddate != null){
 		if($order == "supplier"){
-			$stmt = $conn->prepare("SELECT *,contacts.name FROM shipping_db INNER JOIN contacts ON(shipping_db.supplier=contacts.id) WHERE date_ordered BETWEEN '$startdate' AND '$enddate' ORDER BY contacts.name ASC LIMIT $limit");
+			$stmt = $conn->prepare("SELECT *,contacts.name FROM shipping_db INNER JOIN contacts ON(shipping_db.supplier=contacts.id) WHERE due BETWEEN '$startdate' AND '$enddate' ORDER BY contacts.name ASC LIMIT $limit");
 		}
 		else{
-		  $stmt = $conn->prepare("SELECT *,contacts.name FROM shipping_db INNER JOIN contacts ON(shipping_db.supplier=contacts.id) WHERE date_ordered BETWEEN '$startdate' AND '$enddate' ORDER BY $order ASC LIMIT $limit");
+		  $stmt = $conn->prepare("SELECT *,contacts.name FROM shipping_db INNER JOIN contacts ON(shipping_db.supplier=contacts.id) WHERE due BETWEEN '$startdate' AND '$enddate' ORDER BY $order ASC LIMIT $limit");
 	  }
   }
 	else{

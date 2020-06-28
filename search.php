@@ -3,9 +3,23 @@ $currDir=dirname(__FILE__);
 include("$currDir/defaultLang.php");
 include("$currDir/lib.php");
 include("$currDir/header.php");
-
+include("config.php");
 ?>
 <style>
+@media print {
+    #print {
+        background-color: white;
+        height: 100%;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        margin: 0;
+        padding: 15px;
+        font-size: 14px;
+        line-height: 18px;
+    }
+}
 .column {
   float: left;
   width: 33.33%;
@@ -53,15 +67,9 @@ function goBack() {
 }
 </script>
 <?php
-
-	$servername = "localhost";
-	$username = "root";
-	$dbname = "farmicac_imports_clone";
-	$password = "";
-
 	// Create connection
 	try {
-		$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username);
+		$conn = new PDO("mysql:host=$dbServer;dbname=$dbDatabase", $dbUsername, $dbPassword);
 		// set the PDO error mode to exception
 		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$stmt = $conn->prepare("select COLUMN_NAME from INFORMATION_SCHEMA.COLUMNS where TABLE_NAME = 'shipping_db' AND COLUMN_NAME NOT IN ('id')");
